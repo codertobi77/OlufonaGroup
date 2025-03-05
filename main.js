@@ -179,61 +179,73 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Mobile Menu
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    // Gestion du menu mobile
+    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const closeButton = document.querySelector('.mobile-menu-close');
-    const dropdownLinks = document.querySelectorAll('.mobile-menu .has-dropdown > a');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu nav a');
 
-    if (menuToggle && mobileMenu && closeButton) {
-        console.log('Tous les éléments sont trouvés');
-        
-        // Ouvrir le menu mobile
-        menuToggle.addEventListener('click', function(e) {
-            console.log('Menu toggle clicked'); // Debug
-            e.preventDefault();
-            e.stopPropagation();
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+    // Ouvrir le menu
+    mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+    });
 
-        // Fermer le menu mobile
-        closeButton.addEventListener('click', function(e) {
-            console.log('Close button clicked'); // Debug
-            e.preventDefault();
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+    // Fermer le menu avec le bouton de fermeture
+    mobileMenuClose.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+    });
 
-        // Gérer les sous-menus
-        dropdownLinks.forEach(link => {
+    // Gestion des sous-menus
+    const menuItems = document.querySelectorAll('.mobile-menu nav ul li');
+    
+    menuItems.forEach(item => {
+        const submenu = item.querySelector('ul');
+        if (submenu) {
+            // Ajouter la classe has-submenu
+            item.classList.add('has-submenu');
+            
+            // Obtenir le lien principal
+            const link = item.querySelector('a');
+            
+            // Créer et ajouter l'icône de flèche
+            const arrow = document.createElement('span');
+            arrow.classList.add('submenu-arrow');
+            link.appendChild(arrow);
+            
+            // Gestionnaire de clic
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const dropdown = this.nextElementSibling;
-                const parent = this.parentElement;
-                parent.classList.toggle('active');
+                
+                // Fermer les autres sous-menus
+                menuItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        const otherSubmenu = otherItem.querySelector('ul');
+                        if (otherSubmenu) {
+                            otherSubmenu.style.maxHeight = '0px';
+                        }
+                    }
+                });
+                
+                // Basculer le sous-menu actuel
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                } else {
+                    submenu.style.maxHeight = '0px';
+                }
             });
-        });
+        }
+    });
 
-        // Fermer le menu en cliquant sur un lien
-        const menuLinks = document.querySelectorAll('.mobile-menu a:not(.has-dropdown > a)');
-        menuLinks.forEach(link => {
+    // Fermer le menu quand on clique sur un lien sans sous-menu
+    mobileMenuLinks.forEach(link => {
+        if (!link.parentElement.classList.contains('has-submenu')) {
             link.addEventListener('click', function() {
                 mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
             });
-        });
-
-        // Fermer le menu en cliquant en dehors
-        document.addEventListener('click', function(e) {
-            if (mobileMenu.classList.contains('active') && 
-                !mobileMenu.contains(e.target) && 
-                !menuToggle.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
+        }
+    });
 
     // Désactiver l'ancrage du défilement pendant les animations
     document.addEventListener('scroll', function(e) {
