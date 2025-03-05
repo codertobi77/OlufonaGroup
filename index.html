@@ -10,6 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo Olufona fond blanc_012626.jpg" alt="Olufona Logo" class="logo-light">
+                    <img src="Logo Olufona fond noir_012608.jpg" alt="Olufona Logo" class="logo-dark">
+                </a>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home" data-lang-fr="Accueil" data-lang-en="Home">Accueil</a></li>
+                <li class="has-dropdown">
+                    <a href="#olufona" data-lang-fr="Olufona" data-lang-en="Olufona">
+                        Olufona
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#mot-promoteur" data-lang-fr="Mot du Promoteur" data-lang-en="Promoter's Message">Mot du Promoteur</a></li>
+                        <li><a href="#about" data-lang-fr="À propos" data-lang-en="About">À propos</a></li>
+                        <li><a href="#vision-mission" data-lang-fr="Vision & Mission" data-lang-en="Vision & Mission">Mission</a></li>
+                        <li><a href="#features" data-lang-fr="Nos Valeurs" data-lang-en="Our Values">Nos Valeurs</a></li>
+                    </ul>
+                </li>
+                <li><a href="#departments" data-lang-fr="Départements" data-lang-en="Departments">Départements</a></li>
+                <li><a href="#services" data-lang-fr="Services" data-lang-en="Services">Services</a></li>
+                <li><a href="#solutions" data-lang-fr="Solutions IT" data-lang-en="IT Solutions">Solutions IT</a></li>
+                <li><a href="#news" data-lang-fr="Actualités" data-lang-en="News">Actualités</a></li>
+                <li><a href="#contact" data-lang-fr="Contact" data-lang-en="Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="topbar">
@@ -47,9 +84,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#mot-promoteur" data-lang-fr="Mot du Promoteur" data-lang-en="Promoter's Message">Mot du Promoteur</a></li>
                                 <li><a href="#about" data-lang-fr="À propos" data-lang-en="About">À propos</a></li>
-                                <li><a href="#vision" data-lang-fr="Vision" data-lang-en="Vision">Vision</a></li>
-                                <li><a href="#mission" data-lang-fr="Mission" data-lang-en="Mission">Mission</a></li>
-                                <li><a href="#values" data-lang-fr="Nos Valeurs" data-lang-en="Our Values">Nos Valeurs</a></li>
+                                <li><a href="#vision-mission" data-lang-fr="Vision & Mission" data-lang-en="Vision & Mission">Mission</a></li>
+                                <li><a href="#features" data-lang-fr="Nos Valeurs" data-lang-en="Our Values">Nos Valeurs</a></li>
                             </ul>
                         </li>
                         <li><a href="#departments" data-lang-fr="Départements" data-lang-en="Departments">Départements</a></li>
@@ -130,6 +166,39 @@
         </div>
     </section>
 
+    <!-- Section Mot du Promoteur -->
+    <section id="mot-promoteur" class="promoter-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-lang-fr="Mot du Promoteur" data-lang-en="Promoter's Message">Mot du Promoteur</h2>
+                <p class="section-subtitle" data-lang-fr="Une vision pour l'avenir" data-lang-en="A vision for the future">
+                    Une vision pour l'avenir
+                </p>
+            </div>
+            <div class="section-content">
+                <div class="promoter-content card">
+                    <div class="promoter-image">
+                        <!-- Remplacer par l'image réelle du promoteur -->
+                        <img src="assets/images/promoter.jpg" alt="Promoteur Olufona Group">
+                    </div>
+                    <div class="promoter-text">
+                        <p data-lang-fr="Chers partenaires et visiteurs," data-lang-en="Dear partners and visitors,">
+                            Chers partenaires et visiteurs,
+                        </p>
+                        <p data-lang-fr="En tant que promoteur d'Olufona Group, je suis fier de vous présenter notre vision d'un pont d'opportunités entre l'Afrique francophone et le Nigéria. Notre groupe s'est construit autour d'une ambition claire : faciliter les échanges commerciaux, technologiques et culturels entre ces régions dynamiques." 
+                           data-lang-en="As the promoter of Olufona Group, I am proud to present our vision of a bridge of opportunities between Francophone Africa and Nigeria. Our group was built around a clear ambition: to facilitate commercial, technological and cultural exchanges between these dynamic regions.">
+                            En tant que promoteur d'Olufona Group, je suis fier de vous présenter notre vision d'un pont d'opportunités entre l'Afrique francophone et le Nigéria. Notre groupe s'est construit autour d'une ambition claire : faciliter les échanges commerciaux, technologiques et culturels entre ces régions dynamiques.
+                        </p>
+                        <p data-lang-fr="À travers nos différents départements, nous nous engageons à fournir des solutions innovantes et un accompagnement personnalisé pour votre réussite au Nigéria." 
+                           data-lang-en="Through our various departments, we are committed to providing innovative solutions and personalized support for your success in Nigeria.">
+                            À travers nos différents départements, nous nous engageons à fournir des solutions innovantes et un accompagnement personnalisé pour votre réussite au Nigéria.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
@@ -158,6 +227,92 @@
                             <span class="stat-label" data-lang-fr="Satisfaction client" data-lang-en="Client satisfaction">Satisfaction client</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Vision et Mission -->
+    <section id="vision-mission" class="vision-mission-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-lang-fr="Vision & Mission" data-lang-en="Vision & Mission">Vision & Mission</h2>
+                <p class="section-subtitle" data-lang-fr="Notre engagement pour l'excellence" data-lang-en="Our commitment to excellence">
+                    Notre engagement pour l'excellence
+                </p>
+            </div>
+            <div class="section-content">
+                <div class="vision-mission-wrapper">
+                    <div class="vision-block card">
+                        <div class="block-header">
+                            <h3 class="block-title" data-lang-fr="Notre Vision" data-lang-en="Our Vision">Notre Vision</h3>
+                        </div>
+                        <div class="content-block">
+                            <p data-lang-fr="Devenir le pont incontournable entre l'Afrique francophone et le Nigéria, en facilitant l'innovation technologique, les échanges commerciaux et les investissements durables." 
+                               data-lang-en="Become the essential bridge between Francophone Africa and Nigeria, facilitating technological innovation, trade and sustainable investments.">
+                                Devenir le pont incontournable entre l'Afrique francophone et le Nigéria, en facilitant l'innovation technologique, les échanges commerciaux et les investissements durables.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mission-block card">
+                        <div class="block-header">
+                            <h3 class="block-title" data-lang-fr="Notre Mission" data-lang-en="Our Mission">Notre Mission</h3>
+                        </div>
+                        <div class="content-block">
+                            <ul class="mission-list">
+                                <li data-lang-fr="Fournir des solutions technologiques innovantes adaptées aux besoins des entreprises" 
+                                    data-lang-en="Provide innovative technological solutions adapted to business needs">
+                                    Fournir des solutions technologiques innovantes adaptées aux besoins des entreprises
+                                </li>
+                                <li data-lang-fr="Faciliter l'accès au marché nigérian pour les entrepreneurs francophones" 
+                                    data-lang-en="Facilitate access to the Nigerian market for French-speaking entrepreneurs">
+                                    Faciliter l'accès au marché nigérian pour les entrepreneurs francophones
+                                </li>
+                                <li data-lang-fr="Sécuriser les approvisionnements en matières premières pour les industries" 
+                                    data-lang-en="Secure raw material supplies for industries">
+                                    Sécuriser les approvisionnements en matières premières pour les industries
+                                </li>
+                                <li data-lang-fr="Accompagner les investisseurs dans leur développement au Nigéria" 
+                                    data-lang-en="Support investors in their development in Nigeria">
+                                    Accompagner les investisseurs dans leur développement au Nigéria
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-stories" id="success-stories">
+        <div class="container">
+            <div class="section-intro">
+                <h6 class="section-subtitle" data-lang-fr="NOS RÉUSSITES" data-lang-en="OUR SUCCESSES">NOS RÉUSSITES</h6>
+                <h2 class="section-title" data-lang-fr="Histoires de Réussite" data-lang-en="Success Stories">Histoires de Réussite</h2>
+                <p class="section-description" data-lang-fr="Découvrez les success stories de nos clients" data-lang-en="Discover our client success stories">Découvrez les success stories de nos clients</p>
+            </div>
+            <div class="success-stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="path/to/tech-success.jpg" alt="Success Tech">
+                    </div>
+                    <h3 data-lang-fr="Transformation Digitale" data-lang-en="Digital Transformation">Transformation Digitale</h3>
+                    <p data-lang-fr="Accompagnement réussi d'une entreprise industrielle dans sa transformation numérique" data-lang-en="Successful support of an industrial company in its digital transformation">Accompagnement réussi d'une entreprise industrielle dans sa transformation numérique</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="path/to/business-success.jpg" alt="Success Business">
+                    </div>
+                    <h3 data-lang-fr="Expansion Commerciale" data-lang-en="Commercial Expansion">Expansion Commerciale</h3>
+                    <p data-lang-fr="Implantation réussie d'une entreprise française au Nigeria" data-lang-en="Successful establishment of a French company in Nigeria">Implantation réussie d'une entreprise française au Nigeria</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="path/to/investment-success.jpg" alt="Success Investment">
+                    </div>
+                    <h3 data-lang-fr="Investissement Immobilier" data-lang-en="Real Estate Investment">Investissement Immobilier</h3>
+                    <p data-lang-fr="Projet immobilier d'envergure mené avec succès à Lagos" data-lang-en="Large-scale real estate project successfully conducted in Lagos">Projet immobilier d'envergure mené avec succès à Lagos</p>
                 </div>
             </div>
         </div>
@@ -195,38 +350,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-intro">
-                <h6 class="section-subtitle" data-lang-fr="NOS SERVICES" data-lang-en="OUR SERVICES">NOS SERVICES</h6>
-                <h2 class="section-title" data-lang-fr="Services d'Accompagnement" data-lang-en="Support Services">Services d'Accompagnement</h2>
-                <p class="section-description" data-lang-fr="Un accompagnement complet pour votre réussite au Nigeria" data-lang-en="Complete support for your success in Nigeria">Un accompagnement complet pour votre réussite au Nigeria</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-plane"></i></div>
-                    <h3 data-lang-fr="Voyages d'Affaires" data-lang-en="Business Travel">Voyages d'Affaires</h3>
-                    <p data-lang-fr="Organisation complète de votre séjour professionnel" data-lang-en="Complete organization of your business trip">Organisation complète de votre séjour professionnel</p>
-                    <a href="#" class="btn-secondary" data-lang-fr="Découvrir" data-lang-en="Discover">Découvrir</a>
-                </div>
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-handshake"></i></div>
-                    <h3 data-lang-fr="Mise en Relation B2B" data-lang-en="B2B Networking">Mise en Relation B2B</h3>
-                    <p data-lang-fr="Connexion avec des partenaires locaux fiables" data-lang-en="Connection with reliable local partners">Connexion avec des partenaires locaux fiables</p>
-                    <a href="#" class="btn-secondary" data-lang-fr="Découvrir" data-lang-en="Discover">Découvrir</a>
-                </div>
-                <div class="service-card">
-                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
-                    <h3 data-lang-fr="Support Juridique" data-lang-en="Legal Support">Support Juridique</h3>
-                    <p data-lang-fr="Assistance administrative et juridique complète" data-lang-en="Complete administrative and legal assistance">Assistance administrative et juridique complète</p>
-                    <a href="#" class="btn-secondary" data-lang-fr="Découvrir" data-lang-en="Discover">Découvrir</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Departments Section -->
     <section class="departments" id="departments">
         <div class="container">
@@ -315,32 +439,32 @@
         </div>
     </section>
 
-       <!-- Products Section -->
-       <section class="products" id="products">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
             <div class="section-intro">
-                <h6 class="section-subtitle" data-lang-fr="NOS PRODUITS" data-lang-en="OUR PRODUCTS">NOS PRODUITS</h6>
-                <h2 class="section-title" data-lang-fr="Solutions Technologiques Performa" data-lang-en="Performa Technology Solutions">Solutions Technologiques Performa</h2>
-                <p class="section-description" data-lang-fr="Des outils innovants pour optimiser votre entreprise" data-lang-en="Innovative tools to optimize your business">Des outils innovants pour optimiser votre entreprise</p>
+                <h6 class="section-subtitle" data-lang-fr="NOS SERVICES" data-lang-en="OUR SERVICES">NOS SERVICES</h6>
+                <h2 class="section-title" data-lang-fr="Services d'Accompagnement" data-lang-en="Support Services">Services d'Accompagnement</h2>
+                <p class="section-description" data-lang-fr="Un accompagnement complet pour votre réussite au Nigeria" data-lang-en="Complete support for your success in Nigeria">Un accompagnement complet pour votre réussite au Nigeria</p>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="icon"><i class="fas fa-desktop"></i></div>
-                    <h3 data-lang-fr="Logiciels de Gestion" data-lang-en="Management Software">Logiciels de Gestion</h3>
-                    <p data-lang-fr="Solutions sur mesure pour la gestion d'entreprise" data-lang-en="Custom business management solutions">Solutions sur mesure pour la gestion d'entreprise</p>
-                    <a href="#" class="btn-primary" data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</a>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-plane"></i></div>
+                    <h3 data-lang-fr="Voyages d'Affaires" data-lang-en="Business Travel">Voyages d'Affaires</h3>
+                    <p data-lang-fr="Organisation complète de votre séjour professionnel" data-lang-en="Complete organization of your business trip">Organisation complète de votre séjour professionnel</p>
+                    <a href="#" class="btn-secondary" data-lang-fr="Découvrir" data-lang-en="Discover">Découvrir</a>
                 </div>
-                <div class="product-card">
-                    <div class="icon"><i class="fas fa-robot"></i></div>
-                    <h3 data-lang-fr="Outils d'Automatisation" data-lang-en="Automation Tools">Outils d'Automatisation</h3>
-                    <p data-lang-fr="Automatisez vos processus métier" data-lang-en="Automate your business processes">Automatisez vos processus métier</p>
-                    <a href="#" class="btn-primary" data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</a>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h3 data-lang-fr="Mise en Relation B2B" data-lang-en="B2B Networking">Mise en Relation B2B</h3>
+                    <p data-lang-fr="Connexion avec des partenaires locaux fiables" data-lang-en="Connection with reliable local partners">Connexion avec des partenaires locaux fiables</p>
+                    <a href="#" class="btn-secondary" data-lang-fr="Découvrir" data-lang-en="Discover">Découvrir</a>
                 </div>
-                <div class="product-card">
-                    <div class="icon"><i class="fas fa-cloud"></i></div>
-                    <h3 data-lang-fr="Solutions Cloud" data-lang-en="Cloud Solutions">Solutions Cloud</h3>
-                    <p data-lang-fr="Infrastructure cloud sécurisée et évolutive" data-lang-en="Secure and scalable cloud infrastructure">Infrastructure cloud sécurisée et évolutive</p>
-                    <a href="#" class="btn-primary" data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</a>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3 data-lang-fr="Support Juridique" data-lang-en="Legal Support">Support Juridique</h3>
+                    <p data-lang-fr="Assistance administrative et juridique complète" data-lang-en="Complete administrative and legal assistance">Assistance administrative et juridique complète</p>
+                    <a href="#" class="btn-secondary" data-lang-fr="Découvrir" data-lang-en="Discover">Découvrir</a>
                 </div>
             </div>
         </div>
@@ -389,42 +513,36 @@
         </div>
     </section>
 
-    
-
-    <!-- Success Stories Section -->
-    <section class="success-stories" id="success-stories">
+       <!-- Products Section -->
+       <section class="products" id="products">
         <div class="container">
             <div class="section-intro">
-                <h6 class="section-subtitle" data-lang-fr="NOS RÉUSSITES" data-lang-en="OUR SUCCESSES">NOS RÉUSSITES</h6>
-                <h2 class="section-title" data-lang-fr="Histoires de Réussite" data-lang-en="Success Stories">Histoires de Réussite</h2>
-                <p class="section-description" data-lang-fr="Découvrez les success stories de nos clients" data-lang-en="Discover our client success stories">Découvrez les success stories de nos clients</p>
+                <h6 class="section-subtitle" data-lang-fr="NOS PRODUITS" data-lang-en="OUR PRODUCTS">NOS PRODUITS</h6>
+                <h2 class="section-title" data-lang-fr="Solutions Technologiques Performa" data-lang-en="Performa Technology Solutions">Solutions Technologiques Performa</h2>
+                <p class="section-description" data-lang-fr="Des outils innovants pour optimiser votre entreprise" data-lang-en="Innovative tools to optimize your business">Des outils innovants pour optimiser votre entreprise</p>
             </div>
-            <div class="success-stories-grid">
-                <div class="story-card">
-                    <div class="story-image">
-                        <img src="path/to/tech-success.jpg" alt="Success Tech">
-                    </div>
-                    <h3 data-lang-fr="Transformation Digitale" data-lang-en="Digital Transformation">Transformation Digitale</h3>
-                    <p data-lang-fr="Accompagnement réussi d'une entreprise industrielle dans sa transformation numérique" data-lang-en="Successful support of an industrial company in its digital transformation">Accompagnement réussi d'une entreprise industrielle dans sa transformation numérique</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="icon"><i class="fas fa-desktop"></i></div>
+                    <h3 data-lang-fr="Logiciels de Gestion" data-lang-en="Management Software">Logiciels de Gestion</h3>
+                    <p data-lang-fr="Solutions sur mesure pour la gestion d'entreprise" data-lang-en="Custom business management solutions">Solutions sur mesure pour la gestion d'entreprise</p>
+                    <a href="#" class="btn-primary" data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</a>
                 </div>
-                <div class="story-card">
-                    <div class="story-image">
-                        <img src="path/to/business-success.jpg" alt="Success Business">
-                    </div>
-                    <h3 data-lang-fr="Expansion Commerciale" data-lang-en="Commercial Expansion">Expansion Commerciale</h3>
-                    <p data-lang-fr="Implantation réussie d'une entreprise française au Nigeria" data-lang-en="Successful establishment of a French company in Nigeria">Implantation réussie d'une entreprise française au Nigeria</p>
+                <div class="product-card">
+                    <div class="icon"><i class="fas fa-robot"></i></div>
+                    <h3 data-lang-fr="Outils d'Automatisation" data-lang-en="Automation Tools">Outils d'Automatisation</h3>
+                    <p data-lang-fr="Automatisez vos processus métier" data-lang-en="Automate your business processes">Automatisez vos processus métier</p>
+                    <a href="#" class="btn-primary" data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</a>
                 </div>
-                <div class="story-card">
-                    <div class="story-image">
-                        <img src="path/to/investment-success.jpg" alt="Success Investment">
-                    </div>
-                    <h3 data-lang-fr="Investissement Immobilier" data-lang-en="Real Estate Investment">Investissement Immobilier</h3>
-                    <p data-lang-fr="Projet immobilier d'envergure mené avec succès à Lagos" data-lang-en="Large-scale real estate project successfully conducted in Lagos">Projet immobilier d'envergure mené avec succès à Lagos</p>
+                <div class="product-card">
+                    <div class="icon"><i class="fas fa-cloud"></i></div>
+                    <h3 data-lang-fr="Solutions Cloud" data-lang-en="Cloud Solutions">Solutions Cloud</h3>
+                    <p data-lang-fr="Infrastructure cloud sécurisée et évolutive" data-lang-en="Secure and scalable cloud infrastructure">Infrastructure cloud sécurisée et évolutive</p>
+                    <a href="#" class="btn-primary" data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</a>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Partner Section -->
     <section class="partner" id="partner">
@@ -456,8 +574,6 @@
             </div>
         </div>
     </section>
-
-    
 
     <!-- Testimonials -->
     <section class="testimonials">
@@ -506,6 +622,75 @@
                 </div>
             </div>
             <div class="testimonial-dots"></div>
+        </div>
+    </section>
+
+    <!-- Section Actualités -->
+    <section id="news" class="news-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-lang-fr="Actualités" data-lang-en="News">Actualités</h2>
+                <p class="section-subtitle" data-lang-fr="Restez informé de nos dernières nouvelles" data-lang-en="Stay informed about our latest news">
+                    Restez informé de nos dernières nouvelles
+                </p>
+            </div>
+            <div class="section-content">
+                <div class="news-grid">
+                    <!-- Article 1 -->
+                    <article class="news-card card">
+                        <div class="news-image">
+                            <img src="assets/images/news/tech-innovation.jpg" alt="Innovation technologique">
+                        </div>
+                        <div class="news-content">
+                            <h3 data-lang-fr="Lancement de nouvelles solutions Performa" 
+                                data-lang-en="Launch of new Performa solutions">
+                                Lancement de nouvelles solutions Performa
+                            </h3>
+                            <p data-lang-fr="Olufona Technology enrichit sa gamme de solutions avec de nouvelles fonctionnalités adaptées aux PME." 
+                               data-lang-en="Olufona Technology enhances its solution range with new features adapted for SMEs.">
+                                Olufona Technology enrichit sa gamme de solutions avec de nouvelles fonctionnalités adaptées aux PME.
+                            </p>
+                            <a href="#" class="read-more" data-lang-fr="Lire la suite" data-lang-en="Read more">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="news-card card">
+                        <div class="news-image">
+                            <img src="assets/images/news/business-tour.jpg" alt="Business Tour">
+                        </div>
+                        <div class="news-content">
+                            <h3 data-lang-fr="Prochain Nigeria Business Tour" 
+                                data-lang-en="Next Nigeria Business Tour">
+                                Prochain Nigeria Business Tour
+                            </h3>
+                            <p data-lang-fr="Découvrez les dates de notre prochain voyage d'affaires au Nigéria et les opportunités à saisir." 
+                               data-lang-en="Discover the dates of our next business trip to Nigeria and opportunities to seize.">
+                                Découvrez les dates de notre prochain voyage d'affaires au Nigéria et les opportunités à saisir.
+                            </p>
+                            <a href="#" class="read-more" data-lang-fr="Lire la suite" data-lang-en="Read more">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="news-card card">
+                        <div class="news-image">
+                            <img src="assets/images/news/investment.jpg" alt="Investissement">
+                        </div>
+                        <div class="news-content">
+                            <h3 data-lang-fr="Nouvelles opportunités d'investissement" 
+                                data-lang-en="New investment opportunities">
+                                Nouvelles opportunités d'investissement
+                            </h3>
+                            <p data-lang-fr="Découvrez les secteurs porteurs et les projets d'investissement au Nigéria pour 2024." 
+                               data-lang-en="Discover growing sectors and investment projects in Nigeria for 2024.">
+                                Découvrez les secteurs porteurs et les projets d'investissement au Nigéria pour 2024.
+                            </p>
+                            <a href="#" class="read-more" data-lang-fr="Lire la suite" data-lang-en="Read more">Lire la suite</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -560,7 +745,7 @@
                         </div>
                         <div class="details">
                             <h3>Email</h3>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f5c50514b5e5c4b7f50534a5950515e115c5052">contact@olufona</a></p>
+                            <p><a href="mailto:contact@olufona.com">contact@olufona.com</a></p>
                         </div>
                     </div>
                     <div class="social-media">
@@ -639,7 +824,6 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="main.js"></script>
     <a href="https://wa.me/22997697980" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contactez le support via WhatsApp">

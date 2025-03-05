@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM chargé');
+    
     // Initialize particles.js
     if (document.getElementById('particles-js')) {
         particlesJS('particles-js', {
@@ -177,35 +179,68 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Mobile Menu Toggle
+    // Mobile Menu
     const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeButton = document.querySelector('.mobile-menu-close');
+    const dropdownLinks = document.querySelectorAll('.mobile-menu .has-dropdown > a');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            menuToggle.querySelector('i').classList.toggle('fa-bars');
-            menuToggle.querySelector('i').classList.toggle('fa-times');
-        });
+    if (menuToggle && mobileMenu && closeButton) {
+        console.log('Tous les éléments sont trouvés');
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mainNav.contains(event.target) && !menuToggle.contains(event.target) && mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-            }
+        // Ouvrir le menu mobile
+        menuToggle.addEventListener('click', function(e) {
+            console.log('Menu toggle clicked'); // Debug
+            e.preventDefault();
+            e.stopPropagation();
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
-        
-        // Close menu when window is resized to desktop size
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-                menuToggle.querySelector('i').classList.remove('fa-times');
+
+        // Fermer le menu mobile
+        closeButton.addEventListener('click', function(e) {
+            console.log('Close button clicked'); // Debug
+            e.preventDefault();
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Gérer les sous-menus
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdown = this.nextElementSibling;
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        const menuLinks = document.querySelectorAll('.mobile-menu a:not(.has-dropdown > a)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', function(e) {
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     }
+
+    // Désactiver l'ancrage du défilement pendant les animations
+    document.addEventListener('scroll', function(e) {
+        if (document.querySelector('.has-dropdown.active')) {
+            window.scrollTo(window.scrollX, window.scrollY);
+        }
+    }, { passive: true });
 
     // Sticky Header
     const header = document.querySelector('.header');
@@ -236,8 +271,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // Close mobile menu when link is clicked
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
                     menuToggle.querySelector('i').classList.add('fa-bars');
                     menuToggle.querySelector('i').classList.remove('fa-times');
                 }

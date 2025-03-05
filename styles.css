@@ -99,10 +99,9 @@ img {
     height: auto;
 }
 
+/* Espacement commun pour toutes les sections */
 section {
     padding: 100px 0;
-    position: relative;
-    overflow: hidden;
 }
 
 /* Section Introduction */
@@ -276,15 +275,14 @@ section {
 }
 
 /* Header */
-.header {
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    background-color: var(--background-color);
+    z-index: 100;
+    background: var(--background-color);
     box-shadow: 0 2px 10px var(--shadow-color);
-    transition: all 0.4s var(--transition-cubic);
 }
 
 .header-inner {
@@ -393,12 +391,188 @@ body.dark-mode .dark-mode-toggle .fa-moon {
     width: 100%;
 }
 
+/* Menu mobile */
+.mobile-menu {
+    display: none;
+}
+
 .mobile-menu-toggle {
     display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--text-color);
-    margin-left: 15px;
+}
+
+/* Affichage sur petits écrans uniquement */
+@media screen and (max-width: 991px) {
+    .main-nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--background-color);
+        padding: 0;
+        z-index: 1001;
+        overflow-y: auto;
+        transition: right 0.3s var(--transition-cubic);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-header {
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--card-bg);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-menu-close {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: var(--background-color-alt);
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-close:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .mobile-menu nav {
+        padding: 20px;
+    }
+
+    .mobile-menu nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu nav li {
+        margin-bottom: 5px;
+    }
+
+    .mobile-menu nav a {
+        display: block;
+        padding: 15px;
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-size: 16px;
+    }
+
+    .mobile-menu nav a:hover {
+        background: var(--background-color-alt);
+        color: var(--primary-color);
+    }
+
+    .mobile-menu .has-dropdown {
+        position: relative;
+    }
+
+    .mobile-menu .has-dropdown > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-menu .has-dropdown > a i {
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-menu .has-dropdown.active > a i {
+        transform: rotate(180deg);
+    }
+
+    .mobile-menu .dropdown-menu {
+        background: var(--background-color-alt);
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 10px;
+        display: none;
+    }
+
+    .mobile-menu .dropdown-menu.active {
+        display: block;
+    }
+
+    .mobile-menu .dropdown-menu a {
+        padding: 12px 15px;
+        font-size: 15px;
+        color: var(--text-color-light);
+    }
+
+    .mobile-menu .dropdown-menu a:hover {
+        background: var(--background-color);
+        color: var(--primary-color);
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--text-color);
+        background: none;
+        border: none;
+        padding: 5px;
+        position: relative;
+        z-index: 1002;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle:hover {
+        background: var(--background-color-alt);
+        color: var(--primary-color);
+    }
+}
+
+/* Dark mode pour le menu mobile */
+[data-theme="dark"] .mobile-menu {
+    background: var(--dark-card-bg);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .mobile-menu-header {
+    background: var(--dark-card-bg);
+    border-color: var(--dark-border-color);
+}
+
+[data-theme="dark"] .mobile-menu-close {
+    background: var(--dark-background-color-alt);
+}
+
+[data-theme="dark"] .mobile-menu nav a:hover {
+    background: var(--dark-background-color-alt);
+}
+
+[data-theme="dark"] .mobile-menu .dropdown-menu {
+    background: var(--dark-background-color-alt);
+}
+
+[data-theme="dark"] .mobile-menu .dropdown-menu a:hover {
+    background: var(--dark-card-bg);
 }
 
 /* Language Toggle */
@@ -2028,5 +2202,174 @@ body.dark-mode .dark-mode-toggle .fa-moon {
 
     .dropdown-menu a {
         padding: 10px 20px;
+    }
+}
+
+/* Sections communes */
+.promoter-section,
+.vision-mission-section,
+.departments-section,
+.services-section,
+.solutions-section,
+.news-section {
+    padding: 100px 0;
+    background-color: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dernière section sans marge en bas */
+.contact-section {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .promoter-section,
+    .vision-mission-section,
+    .departments-section,
+    .services-section,
+    .solutions-section,
+    .news-section {
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .promoter-section,
+    .vision-mission-section,
+    .departments-section,
+    .services-section,
+    .solutions-section,
+    .news-section {
+        margin-bottom: 60px;
+    }
+}
+
+/* Styles communs pour toutes les sections */
+.section-padding {
+    padding: 100px 0;
+    margin-bottom: 100px;
+    background-color: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: left;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    position: relative;
+    display: block;
+}
+
+.section-subtitle {
+    color: var(--text-color-light);
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-content {
+    margin-top: 50px;
+}
+
+/* Style commun pour les cartes */
+.card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: all 0.6s var(--transition-cubic);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-color-hover);
+}
+
+/* Grilles spécifiques */
+.vision-mission-wrapper {
+    display: grid;
+    gap: 30px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Dark mode */
+[data-theme="dark"] .card {
+    background: var(--dark-card-bg);
+    box-shadow: 0 10px 30px var(--dark-shadow-color);
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow: 0 20px 40px var(--dark-shadow-color-hover);
+}
+
+/* Responsive */
+@media screen and (min-width: 992px) {
+    .vision-mission-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .promoter-content {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-padding {
+        padding: 80px 0;
+        margin-bottom: 80px;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .section-content {
+        margin-top: 40px;
+    }
+
+    .vision-mission-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .promoter-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+
+    .section-content {
+        margin-top: 30px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 30px;
     }
 }
