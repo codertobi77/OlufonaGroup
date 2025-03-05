@@ -2513,53 +2513,76 @@ body.dark-mode .dark-mode-toggle .fa-moon {
 }
 
 /* Vision & Mission Section */
-#vision-mission {
-    background-color: var(--background-color);
-    padding: 80px 0;
-}
-
 #vision-mission .section-content {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
 }
 
 #vision-mission .content-block {
     background: var(--card-background);
     border-radius: 20px;
     padding: 40px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-#vision-mission .block-title {
-    color: var(--primary-color);
-    font-size: 24px;
+#vision-mission .content-block:hover {
+    transform: translateY(-10px);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+#vision-mission .content-block:hover .block-title {
+    color: var(--accent-color);
+}
+
+/* Titre de la section en pleine largeur */
+#vision-mission .section-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#vision-mission .section-title::before {
+    content: '';
+    width: 45px;
+    height: 4px;
+    background-color: var(--primary-color);
     margin-bottom: 20px;
-    font-weight: 600;
 }
 
-#vision-mission .sub-title {
-    color: var(--text-color);
-    font-size: 20px;
-    margin: 30px 0 15px;
-    font-weight: 500;
-}
-
-#vision-mission .block-text {
-    color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 20px;
+@media (max-width: 992px) {
+    #vision-mission .section-content {
+        flex-direction: column;
+    }
+    
+    #vision-mission .content-block {
+        margin-bottom: 30px;
+    }
+    
+    #vision-mission .content-block:last-child {
+        margin-bottom: 0;
+    }
 }
 
 #vision-mission .feature-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 20px 0;
 }
 
 #vision-mission .feature-item {
     position: relative;
-    padding-left: 25px;
+    padding-left: 35px;
     margin-bottom: 15px;
     color: var(--text-color);
     line-height: 1.5;
@@ -2569,24 +2592,23 @@ body.dark-mode .dark-mode-toggle .fa-moon {
     content: '';
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
     background-color: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.2;
 }
 
-@media (max-width: 768px) {
-    #vision-mission .content-block {
-        padding: 25px;
-        margin: 20px;
-    }
-
-    #vision-mission .block-title {
-        font-size: 20px;
-    }
-
-    #vision-mission .sub-title {
-        font-size: 18px;
-    }
+#vision-mission .feature-item::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
 }
