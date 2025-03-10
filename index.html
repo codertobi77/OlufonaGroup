@@ -74,7 +74,7 @@
 
         .modal-content {
             position: relative;
-            background-color: #fff;
+            background-color: var(--bg-color, #fff);
             margin: 3% auto;
             padding: 30px;
             width: 90%;
@@ -84,6 +84,7 @@
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(74, 86, 226, 0.15);
             border: 1px solid rgba(35, 189, 238, 0.2);
+            color: var(--text-color, #333);
         }
 
         .close-modal {
@@ -109,10 +110,6 @@
             border-bottom: 2px solid #23BDEE;
         }
 
-        .modal-section {
-            margin-bottom: 30px;
-        }
-
         .modal-section h3 {
             color: #4A56E2;
             font-size: 20px;
@@ -120,22 +117,11 @@
             font-weight: 500;
         }
 
-        .modal-section p {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
         .feature-list li {
             position: relative;
             padding-left: 30px;
             margin-bottom: 15px;
-            color: #444;
+            color: var(--text-color, #444);
             line-height: 1.5;
         }
 
@@ -172,55 +158,53 @@
         }
 
         /* Dark mode styles */
-        @media (prefers-color-scheme: dark) {
-            .modal {
-                background-color: rgba(0, 0, 0, 0.75);
-            }
+        .dark-mode .modal {
+            background-color: rgba(0, 0, 0, 0.75);
+        }
 
-            .modal-content {
-                background-color: #1a1a1a;
-                border: 1px solid rgba(35, 189, 238, 0.3);
-                box-shadow: 0 10px 25px rgba(74, 86, 226, 0.25);
-            }
+        .dark-mode .modal-content {
+            background-color: var(--dark-bg-color, #1a1a1a);
+            border: 1px solid rgba(35, 189, 238, 0.3);
+            box-shadow: 0 10px 25px rgba(74, 86, 226, 0.25);
+        }
 
-            .close-modal {
-                color: #23BDEE;
-            }
+        .dark-mode .close-modal {
+            color: #23BDEE;
+        }
 
-            .close-modal:hover {
-                color: #7C8BFF;
-            }
+        .dark-mode .close-modal:hover {
+            color: #7C8BFF;
+        }
 
-            .modal-title {
-                color: #23BDEE;
-                border-bottom-color: #4A56E2;
-            }
+        .dark-mode .modal-title {
+            color: #23BDEE;
+            border-bottom-color: #4A56E2;
+        }
 
-            .modal-section h3 {
-                color: #23BDEE;
-            }
+        .dark-mode .modal-section h3 {
+            color: #23BDEE;
+        }
 
-            .modal-section p {
-                color: #e0e0e0;
-            }
+        .dark-mode .modal-section p {
+            color: var(--dark-text-color, #e0e0e0);
+        }
 
-            .feature-list li {
-                color: #cccccc;
-            }
+        .dark-mode .feature-list li {
+            color: var(--dark-text-color, #cccccc);
+        }
 
-            .feature-list li::before {
-                color: #7C8BFF;
-            }
+        .dark-mode .feature-list li::before {
+            color: #7C8BFF;
+        }
 
-            .learn-more-btn {
-                background: linear-gradient(135deg, #4A56E2, #23BDEE);
-                box-shadow: 0 3px 6px rgba(35, 189, 238, 0.3);
-            }
+        .dark-mode .learn-more-btn {
+            background: linear-gradient(135deg, #4A56E2, #23BDEE);
+            box-shadow: 0 3px 6px rgba(35, 189, 238, 0.3);
+        }
 
-            .learn-more-btn:hover {
-                background: linear-gradient(135deg, #7C8BFF, #23BDEE);
-                box-shadow: 0 5px 12px rgba(35, 189, 238, 0.4);
-            }
+        .dark-mode .learn-more-btn:hover {
+            background: linear-gradient(135deg, #7C8BFF, #23BDEE);
+            box-shadow: 0 5px 12px rgba(35, 189, 238, 0.4);
         }
 
         /* Responsive styles */
@@ -978,41 +962,81 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 class="modal-title" data-lang-fr="PERFORMA ERP" data-lang-en="PERFORMA ERP">PERFORMA ERP</h2>
+            
             <div class="modal-section">
-                <p data-lang-fr="PERFORMA ERP est une solution de gestion intégrée conçue pour optimiser l'ensemble des opérations d'une entreprise, quelle que soit sa taille ou son secteur d'activité." 
-                   data-lang-en="PERFORMA ERP is an integrated management solution designed to optimize all business operations, regardless of size or industry.">
-                    PERFORMA ERP est une solution de gestion intégrée conçue pour optimiser l'ensemble des opérations d'une entreprise, quelle que soit sa taille ou son secteur d'activité.
+                <p data-lang-fr="PERFORMA ERP est une solution de gestion intégrée conçue pour optimiser l'ensemble des opérations d'une entreprise, quelle que soit sa taille ou son secteur d'activité. Son architecture robuste, sa sécurité avancée et sa flexibilité en font un choix idéal pour les entreprises souhaitant une gestion performante et sans faille."
+                   data-lang-en="PERFORMA ERP is an integrated management solution designed to optimize all business operations, regardless of size or industry. Its robust architecture, advanced security, and flexibility make it the ideal choice for companies seeking efficient and flawless management.">
+                    PERFORMA ERP est une solution de gestion intégrée conçue pour optimiser l'ensemble des opérations d'une entreprise, quelle que soit sa taille ou son secteur d'activité. Son architecture robuste, sa sécurité avancée et sa flexibilité en font un choix idéal pour les entreprises souhaitant une gestion performante et sans faille.
+                </p>
+                <p data-lang-fr="Avec PERFORMA ERP, vous bénéficiez d'une gestion centralisée, d'un suivi précis des opérations, et d'un accompagnement 24/7 pour garantir le bon fonctionnement de votre activité."
+                   data-lang-en="With PERFORMA ERP, you benefit from centralized management, precise operations monitoring, and 24/7 support to ensure your business runs smoothly.">
+                    Avec PERFORMA ERP, vous bénéficiez d'une gestion centralisée, d'un suivi précis des opérations, et d'un accompagnement 24/7 pour garantir le bon fonctionnement de votre activité.
                 </p>
             </div>
+
             <div class="modal-section">
-                <h3 data-lang-fr="🔹 Gestion commerciale & opérations" data-lang-en="🔹 Commercial & Operations Management">🔹 Gestion commerciale & opérations</h3>
+                <h3 data-lang-fr="🌟 Fonctionnalités Clés" data-lang-en="🌟 Key Features">🌟 Fonctionnalités Clés</h3>
+                
+                <h4 data-lang-fr="🔹 Gestion commerciale & opérations" data-lang-en="🔹 Commercial & Operations Management">🔹 Gestion commerciale & opérations</h4>
                 <ul class="feature-list">
-                    <li data-lang-fr="Achats & approvisionnements : Suivi optimisé des fournisseurs et gestion automatisée des stocks" 
-                        data-lang-en="Purchases & supplies: Optimized supplier tracking and automated inventory management">
+                    <li data-lang-fr="Achats & approvisionnements : Suivi optimisé des fournisseurs et gestion automatisée des stocks"
+                        data-lang-en="Purchases & Supply: Optimized supplier tracking and automated inventory management">
                         Achats & approvisionnements : Suivi optimisé des fournisseurs et gestion automatisée des stocks
                     </li>
-                    <li data-lang-fr="Commandes clients & fournisseurs : Centralisation et suivi en temps réel des transactions" 
-                        data-lang-en="Customer & supplier orders: Centralization and real-time transaction monitoring">
+                    <li data-lang-fr="Commandes clients & fournisseurs : Centralisation et suivi en temps réel des transactions"
+                        data-lang-en="Customer & Supplier Orders: Centralization and real-time transaction monitoring">
                         Commandes clients & fournisseurs : Centralisation et suivi en temps réel des transactions
                     </li>
-                    <li data-lang-fr="Devis & facturation : Création rapide de devis et transformation instantanée en facture" 
-                        data-lang-en="Quotes & billing: Quick quote creation and instant invoice transformation">
+                    <li data-lang-fr="Devis & facturation : Création rapide de devis et transformation instantanée en facture"
+                        data-lang-en="Quotes & Billing: Quick quote creation and instant invoice transformation">
                         Devis & facturation : Création rapide de devis et transformation instantanée en facture
+                    </li>
+                    <li data-lang-fr="Gestion des ventes en caisse : Système de caisse intégré avec prise en charge des terminaux de paiement"
+                        data-lang-en="Point of Sale Management: Integrated POS system with payment terminal support">
+                        Gestion des ventes en caisse : Système de caisse intégré avec prise en charge des terminaux de paiement
+                    </li>
+                </ul>
+
+                <h4 data-lang-fr="🔹 Gestion financière & analytique" data-lang-en="🔹 Financial & Analytical Management">🔹 Gestion financière & analytique</h4>
+                <ul class="feature-list">
+                    <li data-lang-fr="Suivi de trésorerie : Gestion avancée des flux financiers et rapprochements bancaires"
+                        data-lang-en="Cash Flow Monitoring: Advanced financial flow management and bank reconciliation">
+                        Suivi de trésorerie : Gestion avancée des flux financiers et rapprochements bancaires
+                    </li>
+                    <li data-lang-fr="Rapports & tableaux de bord : Analyse des performances grâce à des indicateurs clairs et personnalisables"
+                        data-lang-en="Reports & Dashboards: Performance analysis with clear and customizable indicators">
+                        Rapports & tableaux de bord : Analyse des performances grâce à des indicateurs clairs et personnalisables
                     </li>
                 </ul>
             </div>
+
             <div class="modal-section">
-                <h3 data-lang-fr="🔹 Gestion financière & analytique" data-lang-en="🔹 Financial & Analytical Management">🔹 Gestion financière & analytique</h3>
+                <h3 data-lang-fr="🔒 Sécurité & Fiabilité" data-lang-en="🔒 Security & Reliability">🔒 Sécurité & Fiabilité</h3>
                 <ul class="feature-list">
-                    <li data-lang-fr="Suivi de trésorerie : Gestion avancée des flux financiers" 
-                        data-lang-en="Cash flow monitoring: Advanced financial flow management">
-                        Suivi de trésorerie : Gestion avancée des flux financiers
+                    <li data-lang-fr="Base de données client-serveur : Une architecture robuste garantissant vitesse et protection des données"
+                        data-lang-en="Client-Server Database: A robust architecture ensuring speed and data protection">
+                        Base de données client-serveur : Une architecture robuste garantissant vitesse et protection des données
                     </li>
-                    <li data-lang-fr="Rapports & tableaux de bord personnalisables" 
-                        data-lang-en="Customizable reports & dashboards">
-                        Rapports & tableaux de bord personnalisables
+                    <li data-lang-fr="Gestion avancée des profils utilisateurs : Accès contrôlé par rôles et permissions"
+                        data-lang-en="Advanced User Profile Management: Role-based access control and permissions">
+                        Gestion avancée des profils utilisateurs : Accès contrôlé par rôles et permissions
                     </li>
                 </ul>
+            </div>
+
+            <div class="modal-section">
+                <p class="cta-text" data-lang-fr="🚀 Optez pour une gestion sans limites avec PERFORMA ERP ! 🚀"
+                                  data-lang-en="🚀 Choose limitless management with PERFORMA ERP! 🚀">
+                    🚀 Optez pour une gestion sans limites avec PERFORMA ERP ! 🚀
+                </p>
+                <p data-lang-fr="Prêt à optimiser la gestion de votre entreprise ?"
+                   data-lang-en="Ready to optimize your business management?">
+                    Prêt à optimiser la gestion de votre entreprise ?
+                </p>
+                <p data-lang-fr="📩 Contactez-nous dès maintenant pour une démonstration !"
+                   data-lang-en="📩 Contact us now for a demonstration!">
+                    📩 Contactez-nous dès maintenant pour une démonstration !
+                </p>
             </div>
         </div>
     </div>
@@ -1021,37 +1045,61 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 class="modal-title" data-lang-fr="PERFORMA HOSTO" data-lang-en="PERFORMA HOSTO">PERFORMA HOSTO</h2>
+            <div class="modal-subtitle" data-lang-fr="La solution idéale dédiée à la gestion hospitalière et médicale"
+                                      data-lang-en="The ideal solution for hospital and medical management">
+                La solution idéale dédiée à la gestion hospitalière et médicale
+            </div>
+            
             <div class="modal-section">
-                <p data-lang-fr="PERFORMA HOSTO est un logiciel de gestion intégrée spécialement conçu pour les structures de santé." 
-                   data-lang-en="PERFORMA HOSTO is an integrated management software specially designed for healthcare facilities.">
-                    PERFORMA HOSTO est un logiciel de gestion intégrée spécialement conçu pour les structures de santé.
+                <p data-lang-fr="PERFORMA HOSTO est un logiciel de gestion intégrée spécialement conçu pour les structures de santé. Il optimise et centralise toutes les opérations administratives, financières et médicales, permettant ainsi aux professionnels de santé de se concentrer sur l'essentiel : la prise en charge des patients."
+                   data-lang-en="PERFORMA HOSTO is an integrated management software specially designed for healthcare facilities. It optimizes and centralizes all administrative, financial, and medical operations, allowing healthcare professionals to focus on what matters most: patient care.">
+                    PERFORMA HOSTO est un logiciel de gestion intégrée spécialement conçu pour les structures de santé. Il optimise et centralise toutes les opérations administratives, financières et médicales, permettant ainsi aux professionnels de santé de se concentrer sur l'essentiel : la prise en charge des patients.
                 </p>
             </div>
+
             <div class="modal-section">
-                <h3 data-lang-fr="🔹 Gestion administrative & financière" data-lang-en="🔹 Administrative & Financial Management">🔹 Gestion administrative & financière</h3>
+                <h3 data-lang-fr="✨ Fonctionnalités Clés" data-lang-en="✨ Key Features">✨ Fonctionnalités Clés</h3>
+                
+                <h4 data-lang-fr="🔹 Gestion administrative & financière" data-lang-en="🔹 Administrative & Financial Management">
+                    🔹 Gestion administrative & financière
+                </h4>
                 <ul class="feature-list">
-                    <li data-lang-fr="Facturation des soins et produits pharmaceutiques" 
-                        data-lang-en="Billing for care and pharmaceutical products">
-                        Facturation des soins et produits pharmaceutiques
+                    <li data-lang-fr="Facturation des soins et produits pharmaceutiques : Suivi complet des actes médicaux et des ventes en pharmacie"
+                        data-lang-en="Billing for care and pharmaceutical products: Complete tracking of medical acts and pharmacy sales">
+                        Facturation des soins et produits pharmaceutiques : Suivi complet des actes médicaux et des ventes en pharmacie
                     </li>
-                    <li data-lang-fr="Gestion de la trésorerie et rapprochements comptables" 
-                        data-lang-en="Cash management and accounting reconciliation">
-                        Gestion de la trésorerie et rapprochements comptables
+                    <li data-lang-fr="Gestion de la trésorerie : Suivi des flux financiers, paiements et rapprochements comptables"
+                        data-lang-en="Treasury management: Monitoring of financial flows, payments and accounting reconciliations">
+                        Gestion de la trésorerie : Suivi des flux financiers, paiements et rapprochements comptables
                     </li>
                 </ul>
             </div>
+
             <div class="modal-section">
-                <h3 data-lang-fr="🔹 Gestion médicale" data-lang-en="🔹 Medical Management">🔹 Gestion médicale</h3>
+                <h3 data-lang-fr="🏥 Secteurs d'activité adaptés" data-lang-en="🏥 Adapted Business Sectors">
+                    🏥 Secteurs d'activité adaptés
+                </h3>
                 <ul class="feature-list">
-                    <li data-lang-fr="Dossiers patients numériques et historiques des soins" 
-                        data-lang-en="Digital patient records and care history">
-                        Dossiers patients numériques et historiques des soins
+                    <li data-lang-fr="Hôpitaux : Gestion complète des services hospitaliers et suivi des soins"
+                        data-lang-en="Hospitals: Complete management of hospital services and care monitoring">
+                        Hôpitaux : Gestion complète des services hospitaliers et suivi des soins
                     </li>
-                    <li data-lang-fr="Gestion laboratoire & radiologie" 
-                        data-lang-en="Laboratory & radiology management">
-                        Gestion laboratoire & radiologie
+                    <li data-lang-fr="Cliniques : Optimisation des flux de patients et des actes médicaux"
+                        data-lang-en="Clinics: Optimization of patient flows and medical procedures">
+                        Cliniques : Optimisation des flux de patients et des actes médicaux
                     </li>
                 </ul>
+            </div>
+
+            <div class="modal-section">
+                <p class="cta-text" data-lang-fr="🚀 Adoptez PERFORMA HOSTO pour une gestion médicale performante !"
+                                  data-lang-en="🚀 Adopt PERFORMA HOSTO for efficient medical management!">
+                    🚀 Adoptez PERFORMA HOSTO pour une gestion médicale performante !
+                </p>
+                <p data-lang-fr="Prêt à optimiser la gestion de votre établissement de santé ?"
+                   data-lang-en="Ready to optimize your healthcare facility management?">
+                    Prêt à optimiser la gestion de votre établissement de santé ?
+                </p>
             </div>
         </div>
     </div>
@@ -1060,31 +1108,121 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 class="modal-title" data-lang-fr="PERFORMA Archidoc" data-lang-en="PERFORMA Archidoc">PERFORMA Archidoc</h2>
+            <div class="modal-subtitle" 
+                data-lang-fr="La solution complète pour la gestion documentaire et la collaboration interne"
+                data-lang-en="The complete solution for document management and internal collaboration">
+                La solution complète pour la gestion documentaire et la collaboration interne
+            </div>
+            
             <div class="modal-section">
-                <p data-lang-fr="Solution numérique avancée dédiée à la gestion des courriers, à l'archivage sécurisé des documents, à la gestion des tâches et à la messagerie locale." 
-                   data-lang-en="Advanced digital solution dedicated to mail management, secure document archiving, task management and local messaging.">
-                    Solution numérique avancée dédiée à la gestion des courriers, à l'archivage sécurisé des documents, à la gestion des tâches et à la messagerie locale.
+                <p data-lang-fr="Performa Archidoc est une solution numérique avancée dédiée à la gestion des courriers, à l'archivage sécurisé des documents, à la gestion des tâches et à la messagerie locale au sein des entreprises. Conçu pour optimiser la productivité et la collaboration, Performa Archidoc permet à vos équipes de mieux organiser et suivre leurs documents et leurs tâches au quotidien, tout en assurant une communication fluide et sécurisée."
+                   data-lang-en="Performa Archidoc is an advanced digital solution dedicated to mail management, secure document archiving, task management, and local messaging within companies. Designed to optimize productivity and collaboration, Performa Archidoc enables your teams to better organize and track their documents and tasks daily while ensuring smooth and secure communication.">
+                    Performa Archidoc est une solution numérique avancée dédiée à la gestion des courriers, à l'archivage sécurisé des documents, à la gestion des tâches et à la messagerie locale au sein des entreprises. Conçu pour optimiser la productivité et la collaboration, Performa Archidoc permet à vos équipes de mieux organiser et suivre leurs documents et leurs tâches au quotidien, tout en assurant une communication fluide et sécurisée.
                 </p>
             </div>
+
             <div class="modal-section">
                 <h3 data-lang-fr="Fonctionnalités Clés" data-lang-en="Key Features">Fonctionnalités Clés</h3>
+                
+                <h4 data-lang-fr="Gestion des Courriers" data-lang-en="Mail Management">Gestion des Courriers</h4>
                 <ul class="feature-list">
-                    <li data-lang-fr="Gestion des Courriers : Suivi des courriers entrants et sortants" 
-                        data-lang-en="Mail Management: Tracking incoming and outgoing mail">
-                        Gestion des Courriers : Suivi des courriers entrants et sortants
+                    <li data-lang-fr="Réception et Enregistrement des Courriers : Suivi des courriers entrants et sortants avec un enregistrement automatisé"
+                        data-lang-en="Mail Reception and Registration: Tracking incoming and outgoing mail with automated registration">
+                        Réception et Enregistrement des Courriers : Suivi des courriers entrants et sortants avec un enregistrement automatisé
                     </li>
-                    <li data-lang-fr="Archivage Numérique : Conservation sécurisée des documents" 
-                        data-lang-en="Digital Archiving: Secure document storage">
-                        Archivage Numérique : Conservation sécurisée des documents
+                    <li data-lang-fr="Attribution d'Identifiants Uniques : Chaque courrier est attribué un identifiant unique pour un suivi facile et une traçabilité complète"
+                        data-lang-en="Unique ID Assignment: Each mail is assigned a unique identifier for easy tracking and complete traceability">
+                        Attribution d'Identifiants Uniques : Chaque courrier est attribué un identifiant unique pour un suivi facile et une traçabilité complète
                     </li>
-                    <li data-lang-fr="Gestion des Tâches : Création et suivi des tâches en temps réel" 
-                        data-lang-en="Task Management: Real-time task creation and tracking">
-                        Gestion des Tâches : Création et suivi des tâches en temps réel
+                    <li data-lang-fr="Archivage et Recherche : Classement automatique des courriers et possibilité de recherche rapide via des mots-clés"
+                        data-lang-en="Archiving and Search: Automatic mail classification and quick keyword search capability">
+                        Archivage et Recherche : Classement automatique des courriers et possibilité de recherche rapide via des mots-clés
+                    </li>
+                </ul>
+
+                <h4 data-lang-fr="Archivage Numérique des Documents" data-lang-en="Digital Document Archiving">Archivage Numérique des Documents</h4>
+                <ul class="feature-list">
+                    <li data-lang-fr="Stockage Sécurisé : Conservation sécurisée des documents avec des droits d'accès définis pour chaque utilisateur"
+                        data-lang-en="Secure Storage: Secure document storage with defined access rights for each user">
+                        Stockage Sécurisé : Conservation sécurisée des documents avec des droits d'accès définis pour chaque utilisateur
+                    </li>
+                    <li data-lang-fr="Classification Automatique : Tri et classement automatique des documents selon des critères personnalisables"
+                        data-lang-en="Automatic Classification: Automatic sorting and filing of documents according to customizable criteria">
+                        Classification Automatique : Tri et classement automatique des documents selon des critères personnalisables
+                    </li>
+                </ul>
+
+                <h4 data-lang-fr="Gestion des Tâches" data-lang-en="Task Management">Gestion des Tâches</h4>
+                <ul class="feature-list">
+                    <li data-lang-fr="Création et Attribution de Tâches : Créez, assignez et suivez l'avancement des tâches en temps réel"
+                        data-lang-en="Task Creation and Assignment: Create, assign and track task progress in real-time">
+                        Création et Attribution de Tâches : Créez, assignez et suivez l'avancement des tâches en temps réel
+                    </li>
+                    <li data-lang-fr="Suivi de l'Avancement : Suivez l'évolution des tâches grâce à des statuts dynamiques"
+                        data-lang-en="Progress Monitoring: Track task evolution through dynamic status updates">
+                        Suivi de l'Avancement : Suivez l'évolution des tâches grâce à des statuts dynamiques
+                    </li>
+                </ul>
+
+                <h4 data-lang-fr="Messagerie Locale Sécurisée" data-lang-en="Secure Local Messaging">Messagerie Locale Sécurisée</h4>
+                <ul class="feature-list">
+                    <li data-lang-fr="Messagerie Interne : Communication fluide entre les membres de l'équipe"
+                        data-lang-en="Internal Messaging: Smooth communication between team members">
+                        Messagerie Interne : Communication fluide entre les membres de l'équipe
+                    </li>
+                    <li data-lang-fr="Historique des Conversations : Archivage des conversations pour une traçabilité complète"
+                        data-lang-en="Conversation History: Conversation archiving for complete traceability">
+                        Historique des Conversations : Archivage des conversations pour une traçabilité complète
                     </li>
                 </ul>
             </div>
+
+            <div class="modal-section">
+                <h3 data-lang-fr="Public Cible" data-lang-en="Target Audience">Public Cible</h3>
+                <ul class="feature-list">
+                    <li data-lang-fr="Entreprises et Administrations : Organisez et gérez vos documents efficacement"
+                        data-lang-en="Businesses and Administrations: Organize and manage your documents efficiently">
+                        Entreprises et Administrations : Organisez et gérez vos documents efficacement
+                    </li>
+                    <li data-lang-fr="Cabinets d'Avocats, Comptables et Experts : Archivage de documents légaux"
+                        data-lang-en="Law Firms, Accountants and Experts: Legal document archiving">
+                        Cabinets d'Avocats, Comptables et Experts : Archivage de documents légaux
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-lang-fr="Support Client" data-lang-en="Customer Support">Support Client</h3>
+                <ul class="feature-list">
+                    <li data-lang-fr="Assistance 24/7 : Notre équipe de support est toujours disponible"
+                        data-lang-en="24/7 Support: Our support team is always available">
+                        Assistance 24/7 : Notre équipe de support est toujours disponible
+                    </li>
+                    <li data-lang-fr="Formation et Onboarding : Sessions de formation personnalisées"
+                        data-lang-en="Training and Onboarding: Personalized training sessions">
+                        Formation et Onboarding : Sessions de formation personnalisées
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <p class="cta-text" 
+                   data-lang-fr="🚀 Adoptez PERFORMA Archidoc pour une gestion documentaire performante !"
+                   data-lang-en="🚀 Adopt PERFORMA Archidoc for efficient document management!">
+                    🚀 Adoptez PERFORMA Archidoc pour une gestion documentaire performante !
+                </p>
+                <p data-lang-fr="Prêt à optimiser la gestion administrative ?"
+                   data-lang-en="Ready to optimize your administrative management?">
+                    Prêt à optimiser la gestion administrative ?
+                </p>
+                <p data-lang-fr="✉ Contactez-nous dès maintenant pour une démonstration !"
+                   data-lang-en="✉ Contact us now for a demonstration!">
+                    ✉ Contactez-nous dès maintenant pour une démonstration !
+                </p>
+            </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="footer">
