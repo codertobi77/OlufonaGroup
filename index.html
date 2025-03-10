@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .department-services {
+            list-style: none;
+            padding-left: 0;
+        }
+        .department-services li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        .department-services li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: #00c8ff;
+            border-radius: 50%;
+        }
+        .department-services .department-link {
+            padding-left: 0;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .department-services .department-link::before {
+            display: none;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Mobile Menu -->
@@ -336,9 +370,9 @@
                         <li data-lang-fr="Automatisation des processus métier" data-lang-en="Business process automation">Automatisation des processus métier</li>
                         <li data-lang-fr="Assistance et maintenance informatique" data-lang-en="IT support and maintenance">Assistance et maintenance informatique</li>
                         <li data-lang-fr="Consulting en transformation numérique" data-lang-en="Digital transformation consulting">Consulting en transformation numérique</li>
-                        <a href="departments/technology.html" class="department-link">
+                        <a href="departments/technology.html" class="department-link"></a>
+                            <span data-lang-fr="En savoir plus " data-lang-en="Learn more ">En savoir plus </span>
                             <i class="fas fa-arrow-right"></i>
-                            <span data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</span>
                         </a>
                     </ul>
                 </div>
@@ -356,8 +390,8 @@
                         <li data-lang-fr="Accompagnement administratif et logistique" data-lang-en="Administrative and logistical support">Accompagnement administratif et logistique</li>
                         <li data-lang-fr="Visites culturelles et touristiques" data-lang-en="Cultural and tourist visits">Visites culturelles et touristiques</li>
                         <a href="departments/nigeria-tour.html" class="department-link">
+                            <span data-lang-fr="En savoir plus " data-lang-en="Learn more ">En savoir plus </span>
                             <i class="fas fa-arrow-right"></i>
-                            <span data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</span>
                         </a>
                     </ul>
                 </div>
@@ -375,8 +409,8 @@
                         <li data-lang-fr="Conseil, assistance juridique et administrative" data-lang-en="Legal and administrative advice and assistance">Conseil, assistance juridique et administrative</li>
                         <li data-lang-fr="Gestion et suivi des investissements" data-lang-en="Investment management and monitoring">Gestion et suivi des investissements</li>
                         <a href="departments/invest.html" class="department-link">
+                            <span data-lang-fr="En savoir plus " data-lang-en="Learn more ">En savoir plus </span>
                             <i class="fas fa-arrow-right"></i>
-                            <span data-lang-fr="En savoir plus" data-lang-en="Learn more">En savoir plus</span>
                         </a>
                     </ul>
                 </div>
