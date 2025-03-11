@@ -212,7 +212,7 @@ menuItems.forEach(item => {
         link.appendChild(arrow);
         
         // Move the click handler to the arrow only, not the whole link
-        arrow.addEventListener('click', function(e) {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation(); // Stop event from bubbling up
             
