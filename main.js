@@ -214,7 +214,7 @@ menuItems.forEach(item => {
         
         // Gestionnaire de clic pour afficher/masquer le sous-menu
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Empêche le comportement par défaut du lien
             
             // Fermer les autres sous-menus
             menuItems.forEach(otherItem => {
@@ -244,12 +244,24 @@ mobileMenuLinks.forEach(link => {
         link.addEventListener('click', function() {
             mobileMenu.classList.remove('active');
         });
+    } else {
+        // Ajouter un gestionnaire de clic pour les liens dans les sous-menus
+        link.addEventListener('click', function() {
+            // S'assurer que le sous-menu est bien fermé après un clic sur un lien
+            const parentItem = link.closest('li');
+            if (parentItem.classList.contains('active')) {
+                parentItem.classList.remove('active');
+                const submenu = parentItem.querySelector('ul');
+                if (submenu) {
+                    submenu.style.maxHeight = '0px';
+                }
+            }
+        });
     }
 });
 
 // Désactiver l'ancrage du défilement pendant les animations
 document.addEventListener('scroll', function(e) {
-    // Empêche le défilement pendant l'activation des sous-menus
     const activeDropdown = document.querySelector('.has-dropdown.active');
     if (activeDropdown) {
         window.scrollTo(window.scrollX, window.scrollY);
@@ -274,6 +286,7 @@ const handleSubMenuAnimations = () => {
 
 // Initialisation de la gestion des animations
 handleSubMenuAnimations();
+
 
 
     // Sticky Header
