@@ -268,24 +268,6 @@ document.addEventListener('scroll', function(e) {
     }
 }, { passive: true });
 
-// Code pour corriger le comportement sur les appareils mobiles et tablettes (en ajoutant un délai pour les animations de sous-menu)
-const handleSubMenuAnimations = () => {
-    menuItems.forEach(item => {
-        const submenu = item.querySelector('ul');
-        if (submenu) {
-            item.addEventListener('transitionend', function() {
-                if (item.classList.contains('active')) {
-                    submenu.style.maxHeight = submenu.scrollHeight + 'px'; // Assurez-vous que le sous-menu est visible après l'animation
-                } else {
-                    submenu.style.maxHeight = '0px';  // Réinitialiser le sous-menu lorsqu'il est caché
-                }
-            });
-        }
-    });
-};
-
-// Initialisation de la gestion des animations
-handleSubMenuAnimations();
 
 
 
