@@ -178,6 +178,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Gestion du menu mobile
+const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuClose = document.querySelector('.mobile-menu-close');
+const mobileMenuLinks = document.querySelectorAll('.mobile-menu nav a');
+
+// Ouvrir le menu
+mobileMenuButton.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+});
+
+// Fermer le menu avec le bouton de fermeture
+mobileMenuClose.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+});
+
+// Gestion des sous-menus
+const menuItems = document.querySelectorAll('.mobile-menu nav ul li');
     
     // Modify the submenu handling code to allow anchor links to work properly
 menuItems.forEach(item => {
