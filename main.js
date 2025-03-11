@@ -365,11 +365,11 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(nextTestimonial, 5000);
 
     // Contact Form Validation
-    (function(){
-            emailjs.init("AjFmmqiiKFnA5zOH7"); // Remplacez par votre User ID EmailJS
-        })();
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -393,17 +393,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (isValid) {
-                emailjs.send("service_d0s6znp", "template_xp00fly", {
-                name: name,
-                email: email,
-                subject: subject,
-                message: message
-            }).then(function(response) {
-                alert("E-mail envoyé avec succès !");
-            }, function(error) {
-                alert("Erreur lors de l'envoi.");
-            });
-        });
+                // In a real application, you would send the form data to a server here
+                alert('Merci pour votre message ! Nous vous contacterons bientôt.');
                 contactForm.reset();
             }
         });
