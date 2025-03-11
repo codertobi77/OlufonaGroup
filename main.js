@@ -180,79 +180,101 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Gestion du menu mobile
-    const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileMenuClose = document.querySelector('.mobile-menu-close');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu nav a');
+const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuClose = document.querySelector('.mobile-menu-close');
+const mobileMenuLinks = document.querySelectorAll('.mobile-menu nav a');
 
-    // Ouvrir le menu
-    mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.add('active');
-    });
+// Ouvrir le menu
+mobileMenuButton.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+});
 
-    // Fermer le menu avec le bouton de fermeture
-    mobileMenuClose.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-    });
+// Fermer le menu avec le bouton de fermeture
+mobileMenuClose.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+});
 
-    // Gestion des sous-menus
-    const menuItems = document.querySelectorAll('.mobile-menu nav ul li');
-    
+// Gestion des sous-menus
+const menuItems = document.querySelectorAll('.mobile-menu nav ul li');
+
+menuItems.forEach(item => {
+    const submenu = item.querySelector('ul');
+    if (submenu) {
+        // Ajouter la classe has-submenu
+        item.classList.add('has-submenu');
+        
+        // Obtenir le lien principal
+        const link = item.querySelector('a');
+        
+        // Créer et ajouter l'icône de flèche
+        const arrow = document.createElement('span');
+        arrow.classList.add('submenu-arrow');
+        link.appendChild(arrow);
+        
+        // Gestionnaire de clic pour afficher/masquer le sous-menu
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Fermer les autres sous-menus
+            menuItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    const otherSubmenu = otherItem.querySelector('ul');
+                    if (otherSubmenu) {
+                        otherSubmenu.style.maxHeight = '0px';
+                    }
+                }
+            });
+            
+            // Basculer l'état du sous-menu actuel
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                submenu.style.maxHeight = submenu.scrollHeight + 'px';  // Afficher le sous-menu
+            } else {
+                submenu.style.maxHeight = '0px';  // Cacher le sous-menu
+            }
+        });
+    }
+});
+
+// Fermer le menu quand on clique sur un lien sans sous-menu
+mobileMenuLinks.forEach(link => {
+    if (!link.parentElement.classList.contains('has-submenu')) {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+    }
+});
+
+// Désactiver l'ancrage du défilement pendant les animations
+document.addEventListener('scroll', function(e) {
+    // Empêche le défilement pendant l'activation des sous-menus
+    const activeDropdown = document.querySelector('.has-dropdown.active');
+    if (activeDropdown) {
+        window.scrollTo(window.scrollX, window.scrollY);
+    }
+}, { passive: true });
+
+// Code pour corriger le comportement sur les appareils mobiles et tablettes (en ajoutant un délai pour les animations de sous-menu)
+const handleSubMenuAnimations = () => {
     menuItems.forEach(item => {
         const submenu = item.querySelector('ul');
         if (submenu) {
-            // Ajouter la classe has-submenu
-            item.classList.add('has-submenu');
-            
-            // Obtenir le lien principal
-            const link = item.querySelector('a');
-            
-            // Créer et ajouter l'icône de flèche
-            const arrow = document.createElement('span');
-            arrow.classList.add('submenu-arrow');
-            link.appendChild(arrow);
-            
-            // Gestionnaire de clic
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Fermer les autres sous-menus
-                menuItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                        const otherSubmenu = otherItem.querySelector('ul');
-                        if (otherSubmenu) {
-                            otherSubmenu.style.maxHeight = '0px';
-                        }
-                    }
-                });
-                
-                // Basculer le sous-menu actuel
-                item.classList.toggle('active');
+            item.addEventListener('transitionend', function() {
                 if (item.classList.contains('active')) {
-                    submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                    submenu.style.maxHeight = submenu.scrollHeight + 'px'; // Assurez-vous que le sous-menu est visible après l'animation
                 } else {
-                    submenu.style.maxHeight = '0px';
+                    submenu.style.maxHeight = '0px';  // Réinitialiser le sous-menu lorsqu'il est caché
                 }
             });
         }
     });
+};
 
-    // Fermer le menu quand on clique sur un lien sans sous-menu
-    mobileMenuLinks.forEach(link => {
-        if (!link.parentElement.classList.contains('has-submenu')) {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-            });
-        }
-    });
+// Initialisation de la gestion des animations
+handleSubMenuAnimations();
 
-    // Désactiver l'ancrage du défilement pendant les animations
-    document.addEventListener('scroll', function(e) {
-        if (document.querySelector('.has-dropdown.active')) {
-            window.scrollTo(window.scrollX, window.scrollY);
-        }
-    }, { passive: true });
 
     // Sticky Header
     const header = document.querySelector('.header');
