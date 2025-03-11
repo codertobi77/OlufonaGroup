@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Gestion du menu mobile
+   // Gestion du menu mobile
 const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuClose = document.querySelector('.mobile-menu-close');
@@ -222,7 +222,7 @@ menuItems.forEach(item => {
                     otherItem.classList.remove('active');
                     const otherSubmenu = otherItem.querySelector('ul');
                     if (otherSubmenu) {
-                        otherSubmenu.style.maxHeight = '0px';
+                        otherSubmenu.style.maxHeight = '0px'; // Fermer l'autre sous-menu
                     }
                 }
             });
@@ -267,6 +267,7 @@ document.addEventListener('scroll', function(e) {
         window.scrollTo(window.scrollX, window.scrollY);
     }
 }, { passive: true });
+
 
 
 
