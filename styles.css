@@ -2411,12 +2411,6 @@ body.dark-mode .dark-mode-toggle .fa-moon {
     .vision-mission-wrapper {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .promoter-content {
-        display: grid;
-        grid-template-columns: 350px 1fr;
-        gap: 40px;
-    }
 }
 
 @media screen and (max-width: 991px) {
@@ -2437,9 +2431,6 @@ body.dark-mode .dark-mode-toggle .fa-moon {
         grid-template-columns: 1fr;
     }
 
-    .promoter-content {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media screen and (max-width: 768px) {
